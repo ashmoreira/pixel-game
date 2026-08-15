@@ -1,0 +1,17 @@
+extends Area2D
+class_name DoorInteractable
+
+@export_file("*.tscn") var normal_destination: String
+@export_file("*.tscn") var scary_destination: String
+
+@warning_ignore("unused_parameter")
+func execute_interaction() -> void:
+	var target_file: String = ""
+		
+	if GameManager.world_shifted and scary_destination != "":
+		target_file = scary_destination
+	elif normal_destination != "":
+		target_file = normal_destination
+		
+	if target_file != "":
+		get_tree().change_scene_to_file(target_file)

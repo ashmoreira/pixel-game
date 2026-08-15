@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dml3nb8x774s7"]
+
+[ext_resource type="Script" uid="uid://b4tr4tc8j5lkr" path="res://UIManager.gd" id="1_cvgj4"]
+[ext_resource type="Theme" uid="uid://5mbnr3n6dg07" path="res://default_theme.tres" id="2_quu8p"]
+
+[node name="UiManager" type="CanvasLayer" unique_id=1306395659]
+script = ExtResource("1_cvgj4")
+
+[node name="NoteBox" type="PanelContainer" parent="." unique_id=1253273537]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_quu8p")
+
+[node name="Label" type="Label" parent="NoteBox" unique_id=214836266]
+layout_mode = 2
+theme = ExtResource("2_quu8p")
+
+[node name="HintBox" type="PanelContainer" parent="." unique_id=538683710]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme = ExtResource("2_quu8p")
+
+[node name="Label" type="Label" parent="HintBox" unique_id=894738587]
+layout_mode = 2
+theme = ExtResource("2_quu8p")

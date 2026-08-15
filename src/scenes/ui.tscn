@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d4ga66ktgibj5"]
+
+[ext_resource type="FontFile" uid="uid://benylrgxs02fl" path="res://assets/ui/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="1_ci1ks"]
+
+[node name="UI" type="CanvasLayer" unique_id=402108930]
+
+[node name="NoteBox" type="PanelContainer" parent="." unique_id=236926910]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="NoteBox" unique_id=367125129]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ci1ks")
+theme_override_font_sizes/font_size = 19

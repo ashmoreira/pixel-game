@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://5mbnr3n6dg07"]
+
+[ext_resource type="FontFile" uid="uid://benylrgxs02fl" path="res://assets/ui/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Monospace/PeaberryMono.ttf" id="1_e7bfs"]
+
+[resource]
+default_font = ExtResource("1_e7bfs")
+default_font_size = 18
