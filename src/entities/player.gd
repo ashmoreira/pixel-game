@@ -10,9 +10,8 @@ func _physics_process(_delta: float) -> void:
 	# if the dialogue box is present, player can't move
 	if UiManager.is_message_visible():
 		sprite.stop() # stop animation if dialogue is up
-		if Input.is_action_pressed("interact"): # if E is pressed -> can move
+		if Input.is_action_just_pressed("interact"): # if E is pressed -> can move
 			UiManager.hide_message() # close dialogue
-			return
 		return
 		
 	# keyboard inputs into direction

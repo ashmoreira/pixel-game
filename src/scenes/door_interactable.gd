@@ -14,4 +14,4 @@ func execute_interaction() -> void:
 		target_file = normal_destination
 		
 	if target_file != "":
-		get_tree().change_scene_to_file(target_file)
+		SceneFader.fade_and_change(target_file)

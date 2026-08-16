@@ -6,4 +6,4 @@ func execute_interaction() -> void:
 	if UiManager.is_message_visible():
 		UiManager.hide_message()
 	else:
-		UiManager.show_message(note_text)
+		UiManager.show_message(note_text, 6.0)

@@ -67,8 +67,8 @@ shape = SubResource("RectangleShape2D_pb0h4")
 
 [node name="HallwayTransition" type="Area2D" parent="." unique_id=435041544]
 script = ExtResource("6_5ohw5")
-normal_destination = "uid://dvwkrmd2nsnr1"
-scary_destination = "uid://ucn1q7svktw4"
+normal_destination = "uid://brwontdkqu28u"
+scary_destination = "uid://b1jugjd76488n"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallwayTransition" unique_id=834125676]
 position = Vector2(2777, 895)

@@ -5,9 +5,13 @@ extends CanvasLayer
 @onready var hint_box: PanelContainer = $HintBox
 @onready var hint_label: Label = $HintBox/Label
 
-func show_message(text:String) -> void:
+func show_message(text:String, duration: float = 0.0) -> void:
 	note_label.text = text
 	note_box.show()
+	if duration > 0.0:
+		await get_tree().create_timer(duration).timeout
+		print("auto hiding")
+		note_box.hide()
 	
 func hide_message() -> void:
 	note_box.hide()

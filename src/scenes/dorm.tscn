@@ -2,14 +2,17 @@
 
 [ext_resource type="TileSet" uid="uid://dsc6g86ebcutd" path="res://src/tile_set.tres" id="1_vfly3"]
 [ext_resource type="PackedScene" uid="uid://dt3dnl417m6kf" path="res://src/entities/player.tscn" id="2_vfly3"]
+[ext_resource type="Script" uid="uid://c77p4by41s7du" path="res://src/scenes/path_transition.gd" id="4_561hh"]
 [ext_resource type="Script" uid="uid://15br8oll5mvs" path="res://src/scenes/interactable_object.gd" id="8_d71uk"]
-[ext_resource type="Script" uid="uid://d3wi1yrp07bou" path="res://src/scenes/door.gd" id="9_2lrdr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afg5n"]
 radius = 21.023796
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5k0ok"]
-size = Vector2(80, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2vd"]
+size = Vector2(82, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfly3"]
+size = Vector2(97, 20)
 
 [node name="dorm 1" type="Node2D" unique_id=235375626]
 position = Vector2(95, 55)
@@ -47,7 +50,7 @@ tile_map_data = PackedByteArray("AAAXAPj/BAAUABMAADAYAAEABAATABMAAGAZAAEABAATABQ
 tile_set = ExtResource("1_vfly3")
 
 [node name="Player" parent="." unique_id=427444456 instance=ExtResource("2_vfly3")]
-position = Vector2(287, 164)
+position = Vector2(287, 156)
 
 [node name="Desk" type="Area2D" parent="." unique_id=1212003188]
 script = ExtResource("8_d71uk")
@@ -58,9 +61,17 @@ position = Vector2(510, 75)
 shape = SubResource("CircleShape2D_afg5n")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="Door" type="Area2D" parent="." unique_id=62010669]
-script = ExtResource("9_2lrdr")
+[node name="HallTransition" type="Area2D" parent="." unique_id=1055861641]
+script = ExtResource("4_561hh")
+normal_destination = "uid://brwontdkqu28u"
+scary_destination = "uid://b1jugjd76488n"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1688822863]
-position = Vector2(289, 203)
-shape = SubResource("RectangleShape2D_5k0ok")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HallTransition" unique_id=1992469903]
+position = Vector2(291, 212)
+shape = SubResource("RectangleShape2D_ne2vd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=459198851]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=914023708]
+position = Vector2(294.5, 215)
+shape = SubResource("RectangleShape2D_vfly3")

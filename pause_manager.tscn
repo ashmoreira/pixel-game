@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bl0pybvkm6nov"]
+
+[ext_resource type="Script" uid="uid://ciafom5q736lw" path="res://pause_manager.gd" id="1_sg2dq"]
+
+[node name="PauseManager" type="CanvasLayer" unique_id=153168446]
+script = ExtResource("1_sg2dq")
+
+[node name="DimOverlay" type="ColorRect" parent="." unique_id=1671040878]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.70980394)
+
+[node name="PausePanel" type="Control" parent="." unique_id=452568366]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PausePanel" unique_id=1336263720]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel/CenterContainer" unique_id=341730386]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=113969938]
+layout_mode = 2
+text = "Resume
+"
+
+[node name="Restart" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=45197511]
+layout_mode = 2
+text = "Restart"
+
+[node name="VolumeSlider" type="HSlider" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1421163974]
+layout_mode = 2
+
+[node name="FullscreenToggle" type="CheckButton" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1164781671]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="Quit" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1760762225]
+layout_mode = 2
+text = "Quit to Menu"
