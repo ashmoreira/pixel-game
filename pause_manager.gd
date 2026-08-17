@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var volume_slider: HSlider = $PausePanel/CenterContainer/VBoxContainer/VolumeSlider
 @onready var fullscreen_toggle: CheckButton = $PausePanel/CenterContainer/VBoxContainer/FullscreenToggle
 
-const MAIN_MENU_SCENE := "res://scenes/main_menu.tscn"
+const MAIN_MENU_SCENE := "res://main_menu.tscn"
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # when pause is true game still responds here
 	dim_overlay.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -16,10 +16,6 @@ func _ready() -> void:
 	var bus_index := AudioServer.get_bus_index("Master") # returns volume in decibels
 	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index)) #convert to linear values
 	fullscreen_toggle.button_pressed = (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN) # check if fullscreen and match to toggle
-	
-	#connect to signals
-	volume_slider.value_changed.connect(_on_volume_changed)
-	fullscreen_toggle.toggled.connect(_on_fullscreen_toggled)
 	
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -37,8 +33,9 @@ func _on_restart_pressed() -> void:
 	get_tree().paused = false # unpause first
 	dim_overlay.hide() 
 	pause_panel.hide()
+	UiManager.hide_message()
 	GameManager.reset_progress()
-	SceneFader.fade_and_change("res://scenes/main_menu.tscn")
+	SceneFader.fade_and_change("res://src/scenes/schoolroom.tscn")
 	
 func _on_volume_changed(value:float) -> void: # when slider moves value is new position
 	var bus_index := AudioServer.get_bus_index("Master") 
@@ -49,3 +46,13 @@ func _on_fullscreen_toggled(pressed: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_save_pressed() -> void:
+	GameManager.save_game(get_tree().current_scene.scene_file_path)
+
+func _on_quit_to_menu_pressed() -> void:
+	get_tree().paused = false
+	dim_overlay.hide()
+	pause_panel.hide()
+	UiManager.hide_message()
+	SceneFader.fade_and_change(MAIN_MENU_SCENE)

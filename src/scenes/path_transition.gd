@@ -2,6 +2,7 @@ extends Area2D
 
 @export_file("*.tscn") var normal_destination: String
 @export_file("*.tscn") var scary_destination: String
+@export var target_spawn_point: String = ""
 
 # block doors once youve walked through
 @export var block: bool = false
@@ -14,10 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
 	
-	print("block: ", block, " | world_shifted: ", GameManager.world_shifted)	
 	#block logic: if block and world hasnt shifted
 	if block and not GameManager.world_shifted:
-		print("blocking triggered")
 		UiManager.show_message(block_message)
 		return 
 	
@@ -29,4 +28,6 @@ func _on_body_entered(body: Node2D) -> void:
 		target_file = normal_destination
 		
 	if target_file != "":
+		print("setting next spawn", target_spawn_point)
+		GameManager.next_spawn_point = target_spawn_point
 		SceneFader.fade_and_change(target_file)

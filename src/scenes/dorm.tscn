@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://dsc6g86ebcutd" path="res://src/tile_set.tres" id="1_vfly3"]
 [ext_resource type="PackedScene" uid="uid://dt3dnl417m6kf" path="res://src/entities/player.tscn" id="2_vfly3"]
 [ext_resource type="Script" uid="uid://c77p4by41s7du" path="res://src/scenes/path_transition.gd" id="4_561hh"]
+[ext_resource type="Script" uid="uid://dykucw0fv4o02" path="res://spawn.gd" id="5_vfly3"]
 [ext_resource type="Script" uid="uid://15br8oll5mvs" path="res://src/scenes/interactable_object.gd" id="8_d71uk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afg5n"]
@@ -65,6 +66,7 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 script = ExtResource("4_561hh")
 normal_destination = "uid://brwontdkqu28u"
 scary_destination = "uid://b1jugjd76488n"
+target_spawn_point = "SpawnFromDorm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallTransition" unique_id=1992469903]
 position = Vector2(291, 212)
@@ -75,3 +77,8 @@ shape = SubResource("RectangleShape2D_ne2vd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=914023708]
 position = Vector2(294.5, 215)
 shape = SubResource("RectangleShape2D_vfly3")
+
+[node name="SpawnFromHallway" type="Marker2D" parent="." unique_id=1994241876]
+position = Vector2(289, 159)
+script = ExtResource("5_vfly3")
+facing = "up"

@@ -4,6 +4,7 @@ extends Node
 # tracking progress
 var has_notebook: bool = false
 var world_shifted: bool = false
+var next_spawn_point: String = ""
 
 const SAVE_PATH := "user://savegame.json"
 
@@ -19,7 +20,7 @@ func save_game(current_scene_path: String) -> void:
 	}
 	
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	file.store_string(JSON.stringify(save_data))
+	file.store_string(JSON.stringify(save_data)) #convert dicitonary to text
 	file.close()
 
 func load_game() -> String:
@@ -30,7 +31,7 @@ func load_game() -> String:
 	var json_text := file.get_as_text()
 	file.close()
 	
-	var save_data = JSON.parse_string(json_text)
+	var save_data = JSON.parse_string(json_text) #converts back to usuable dictionary when loading
 	if save_data == null:
 		return ""
 	

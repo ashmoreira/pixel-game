@@ -1,10 +1,219 @@
 [gd_scene format=3 uid="uid://crev2inf1u6xe"]
 
 [ext_resource type="Script" uid="uid://vw1uik1lapom" path="res://control.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://ce3d7sgqk1ehb" path="res://assets/ui/Garden's Forest/background4.png" id="2_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://ceogg6cxyfatk" path="res://assets/ui/Garden's Forest/background3.png" id="3_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://d4k3qkls811hd" path="res://assets/ui/Garden's Forest/background2.png" id="4_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://f4xmx6iolxon" path="res://assets/ui/Garden's Forest/background1.png" id="5_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://dwgctbrjg8rlk" path="res://assets/ui/Garden's Forest/trees.png" id="6_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://r2ocdlnu7xqm" path="res://assets/ui/Garden's Forest/frontleaves.png" id="7_iotk1"]
+[ext_resource type="Texture2D" uid="uid://dpmjr0xn01hr4" path="res://assets/ui/Garden's Forest/pushes.png" id="8_w44g7"]
+[ext_resource type="FontFile" uid="uid://dh5xqib38ahqf" path="res://assets/ui/Abaddon_Fonts_v1.2/Abaddon Bold.ttf" id="9_dy7ct"]
 
-[node name="Control" type="Control" unique_id=1560917262]
+[node name="MainMenu" type="Control" unique_id=1560917262]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_06t4h")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1046430121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03529412, 0.039215688, 0.07450981, 1)
+
+[node name="BackgroundLayers" type="Control" parent="." unique_id=250123118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layer1" type="TextureRect" parent="BackgroundLayers" unique_id=1896627108]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8qtwp")
+stretch_mode = 6
+
+[node name="Layer2" type="TextureRect" parent="BackgroundLayers" unique_id=749929473]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dy7ct")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layer3" type="TextureRect" parent="BackgroundLayers" unique_id=1231191653]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0o4t1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layer4" type="TextureRect" parent="BackgroundLayers" unique_id=1231692635]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_0k4wn")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layer5" type="TextureRect" parent="BackgroundLayers" unique_id=1647687502]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_j5v2v")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layer6" type="TextureRect" parent="BackgroundLayers" unique_id=696683991]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -331.0
+offset_top = -179.11601
+offset_right = 269.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_iotk1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layer7" type="TextureRect" parent="BackgroundLayers" unique_id=1122990875]
+custom_minimum_size = Vector2(600, 320)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.606
+anchor_right = 0.5
+anchor_bottom = 0.793
+offset_left = -300.0
+offset_top = -179.11601
+offset_right = 300.0
+offset_bottom = 19.708008
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("8_w44g7")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=1577936737]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.186
+anchor_right = 1.0
+anchor_bottom = 0.203
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_dy7ct")
+theme_override_font_sizes/font_size = 44
+text = "Tether"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=18009514]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.737
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="CenterContainer" unique_id=294717353]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/Control" unique_id=1786422599]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 54
+
+[node name="StartButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=22133475]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_dy7ct")
+theme_override_font_sizes/font_size = 25
+text = "Start"
+
+[node name="LoadButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=1073688611]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_dy7ct")
+theme_override_font_sizes/font_size = 25
+text = "Load
+"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Control/VBoxContainer" unique_id=433014590]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_dy7ct")
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Control/VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/Control/VBoxContainer/LoadButton" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="CenterContainer/Control/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

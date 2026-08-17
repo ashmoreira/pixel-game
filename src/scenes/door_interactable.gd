@@ -3,6 +3,7 @@ class_name DoorInteractable
 
 @export_file("*.tscn") var normal_destination: String
 @export_file("*.tscn") var scary_destination: String
+@export var target_spawn_point: String = ""
 
 @warning_ignore("unused_parameter")
 func execute_interaction() -> void:

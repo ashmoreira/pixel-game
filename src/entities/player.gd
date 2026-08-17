@@ -6,6 +6,22 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_zone: Area2D = $InteractionZone
 
+func _ready() -> void:
+	add_to_group("player")
+	
+func apply_spawn(spawn_marker: SpawnPoint) -> void:
+	global_position = spawn_marker.global_position #move player to marker
+	match spawn_marker.facing: #matches up with what sprite animation to have
+		"up":
+			sprite.play("walk_up")
+		"down":
+			sprite.play("walk_down")
+		"left":
+			sprite.play("walk_left")
+		"right":
+			sprite.play("walk_right")
+	sprite.stop() # then stop animation 
+	
 func _physics_process(_delta: float) -> void:
 	# if the dialogue box is present, player can't move
 	if UiManager.is_message_visible():

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bl0pybvkm6nov"]
 
 [ext_resource type="Script" uid="uid://ciafom5q736lw" path="res://pause_manager.gd" id="1_sg2dq"]
+[ext_resource type="FontFile" uid="uid://dh5xqib38ahqf" path="res://assets/ui/Abaddon_Fonts_v1.2/Abaddon Bold.ttf" id="2_8gelj"]
 
 [node name="PauseManager" type="CanvasLayer" unique_id=153168446]
 script = ExtResource("1_sg2dq")
@@ -21,30 +22,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="PausePanel" unique_id=1610114460]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439
+anchor_top = 0.207
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 44
+text = "Paused"
+
 [node name="CenterContainer" type="CenterContainer" parent="PausePanel" unique_id=1336263720]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -86.0
+offset_right = 71.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PausePanel/CenterContainer" unique_id=341730386]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="ResumeButton" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=113969938]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 24
 text = "Resume
 "
 
 [node name="Restart" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=45197511]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 24
 text = "Restart"
+
+[node name="SaveButton" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=437838781]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 24
+text = "Save"
 
 [node name="VolumeSlider" type="HSlider" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1421163974]
 layout_mode = 2
 
 [node name="FullscreenToggle" type="CheckButton" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1164781671]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 24
 text = "Fullscreen"
 
 [node name="Quit" type="Button" parent="PausePanel/CenterContainer/VBoxContainer" unique_id=1760762225]
 layout_mode = 2
+theme_override_constants/h_separation = 13
+theme_override_fonts/font = ExtResource("2_8gelj")
+theme_override_font_sizes/font_size = 24
 text = "Quit to Menu"
+
+[connection signal="pressed" from="PausePanel/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PausePanel/CenterContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PausePanel/CenterContainer/VBoxContainer/SaveButton" to="." method="_on_save_pressed"]
+[connection signal="value_changed" from="PausePanel/CenterContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_changed"]
+[connection signal="toggled" from="PausePanel/CenterContainer/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="PausePanel/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_to_menu_pressed"]
