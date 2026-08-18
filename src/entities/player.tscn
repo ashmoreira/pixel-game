@@ -116,13 +116,13 @@ size = Vector2(20, 11)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5k0ok"]
 radius = 21.023796
 
-[node name="Player" type="CharacterBody2D" unique_id=427444456]
+[node name="Player" type="CharacterBody2D" unique_id=427444456 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_3glep")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1430855848]
 sprite_frames = SubResource("SpriteFrames_5k0ok")
-animation = &"walk_right"
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1578097339]
 position = Vector2(0, 30.5)

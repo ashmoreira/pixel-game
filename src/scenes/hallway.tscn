@@ -7,12 +7,16 @@
 [ext_resource type="Script" uid="uid://c0j3lju56h5lf" path="res://src/scenes/door_interactable.gd" id="4_4hvxp"]
 [ext_resource type="Script" uid="uid://15br8oll5mvs" path="res://src/scenes/interactable_object.gd" id="5_pprgo"]
 [ext_resource type="Script" uid="uid://dykucw0fv4o02" path="res://spawn.gd" id="6_pprgo"]
+[ext_resource type="Script" uid="uid://c77p4by41s7du" path="res://src/scenes/path_transition.gd" id="8_sdtyr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k0ok"]
 size = Vector2(51.5, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2vd"]
 size = Vector2(51.75, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb0h4"]
+size = Vector2(140, 24)
 
 [node name="hallway" type="Node2D" unique_id=1558077003]
 script = ExtResource("1_ijby3")
@@ -30,16 +34,17 @@ tile_map_data = PackedByteArray("AAAQACQAAwACACsAAAAQACUAAwACACwAAAAQACYAAwACAC0
 tile_set = ExtResource("1_s3d1d")
 
 [node name="Player" parent="." unique_id=427444456 instance=ExtResource("3_4hvxp")]
-position = Vector2(268, 606)
+position = Vector2(233, 554)
 
-[node name="DormTansition" type="Area2D" parent="." unique_id=910179662]
-position = Vector2(268, 606)
+[node name="DormTransition" type="Area2D" parent="." unique_id=910179662]
+position = Vector2(425, 518)
 script = ExtResource("4_4hvxp")
 normal_destination = "uid://ns5t7lv383sd"
 scary_destination = "uid://bvnai42m6o8ye"
+target_spawn_point = "FromHalltoDorm"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DormTansition" unique_id=302328310]
-position = Vector2(175.25, -777)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DormTransition" unique_id=302328310]
+position = Vector2(16, -690)
 shape = SubResource("RectangleShape2D_5k0ok")
 
 [node name="WrongDoor" type="Area2D" parent="." unique_id=1952741083]
@@ -58,11 +63,22 @@ shape = SubResource("RectangleShape2D_ne2vd")
 position = Vector2(941, -171)
 shape = SubResource("RectangleShape2D_ne2vd")
 
-[node name="SpawnFromDorm" type="Marker2D" parent="." unique_id=433956501]
+[node name="FromDormtoHall" type="Marker2D" parent="." unique_id=433956501]
 position = Vector2(446, -114)
 script = ExtResource("6_pprgo")
 
-[node name="SpawnFromCorridor" type="Marker2D" parent="." unique_id=844335332]
-position = Vector2(279, 635)
+[node name="FromCorridortoHall" type="Marker2D" parent="." unique_id=844335332]
+position = Vector2(279, 588)
 script = ExtResource("6_pprgo")
 facing = "up"
+
+[node name="CorridorTransition" type="Area2D" parent="." unique_id=1250115702]
+position = Vector2(264, 614)
+script = ExtResource("8_sdtyr")
+normal_destination = "uid://dl8mlrm2hxv66"
+scary_destination = "uid://ucgxyibq05t5"
+target_spawn_point = "FromHalltoCorridor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorridorTransition" unique_id=2031956511]
+position = Vector2(15, 30)
+shape = SubResource("RectangleShape2D_pb0h4")

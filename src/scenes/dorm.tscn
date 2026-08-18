@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://ns5t7lv383sd"]
 
+[ext_resource type="Script" uid="uid://bc33nlnajlapf" path="res://src/scenes/dorm.gd" id="1_sftij"]
 [ext_resource type="TileSet" uid="uid://dsc6g86ebcutd" path="res://src/tile_set.tres" id="1_vfly3"]
 [ext_resource type="PackedScene" uid="uid://dt3dnl417m6kf" path="res://src/entities/player.tscn" id="2_vfly3"]
 [ext_resource type="Script" uid="uid://c77p4by41s7du" path="res://src/scenes/path_transition.gd" id="4_561hh"]
@@ -17,6 +18,7 @@ size = Vector2(97, 20)
 
 [node name="dorm 1" type="Node2D" unique_id=235375626]
 position = Vector2(95, 55)
+script = ExtResource("1_sftij")
 
 [node name="floor" type="TileMapLayer" parent="." unique_id=461003628]
 position = Vector2(57, -56)
@@ -51,7 +53,7 @@ tile_map_data = PackedByteArray("AAAXAPj/BAAUABMAADAYAAEABAATABMAAGAZAAEABAATABQ
 tile_set = ExtResource("1_vfly3")
 
 [node name="Player" parent="." unique_id=427444456 instance=ExtResource("2_vfly3")]
-position = Vector2(287, 156)
+position = Vector2(169, 47)
 
 [node name="Desk" type="Area2D" parent="." unique_id=1212003188]
 script = ExtResource("8_d71uk")
@@ -66,7 +68,7 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 script = ExtResource("4_561hh")
 normal_destination = "uid://brwontdkqu28u"
 scary_destination = "uid://b1jugjd76488n"
-target_spawn_point = "SpawnFromDorm"
+target_spawn_point = "FromDormtoHall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HallTransition" unique_id=1992469903]
 position = Vector2(291, 212)
@@ -78,7 +80,7 @@ shape = SubResource("RectangleShape2D_ne2vd")
 position = Vector2(294.5, 215)
 shape = SubResource("RectangleShape2D_vfly3")
 
-[node name="SpawnFromHallway" type="Marker2D" parent="." unique_id=1994241876]
-position = Vector2(289, 159)
+[node name="FromHalltoDorm" type="Marker2D" parent="." unique_id=1994241876]
+position = Vector2(287, 154)
 script = ExtResource("5_vfly3")
 facing = "up"

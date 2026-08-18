@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://che2phpkgs4so" path="res://src/scenes/schoolroom.gd" id="1_iiuav"]
 [ext_resource type="PackedScene" uid="uid://dt3dnl417m6kf" path="res://src/entities/player.tscn" id="1_vnnjj"]
 [ext_resource type="Script" uid="uid://c0j3lju56h5lf" path="res://src/scenes/door_interactable.gd" id="5_8xcqe"]
+[ext_resource type="Script" uid="uid://dykucw0fv4o02" path="res://spawn.gd" id="5_nkf6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5k0ok"]
 size = Vector2(50, 83)
@@ -32,13 +33,19 @@ tile_map_data = PackedByteArray("AACMABcAAAALACsAAACMABgAAAALACwAAACMABkAAAALAC0
 tile_set = ExtResource("1_gm30o")
 
 [node name="Player" parent="." unique_id=427444456 instance=ExtResource("1_vnnjj")]
-position = Vector2(2126, 562)
+position = Vector2(2115, 562)
 
 [node name="ExitDoor" type="Area2D" parent="." unique_id=130519830]
+visible = false
 script = ExtResource("5_8xcqe")
 normal_destination = "uid://dl8mlrm2hxv66"
 scary_destination = "uid://ucgxyibq05t5"
+target_spawn_point = "FromSchoolroomtoCorridor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=1273894860]
 position = Vector2(2387, 659.5)
 shape = SubResource("RectangleShape2D_5k0ok")
+
+[node name="FromCorridortoSchoolroom" type="Marker2D" parent="." unique_id=1447478994]
+position = Vector2(2115, 562)
+script = ExtResource("5_nkf6i")

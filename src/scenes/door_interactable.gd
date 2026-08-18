@@ -15,4 +15,5 @@ func execute_interaction() -> void:
 		target_file = normal_destination
 		
 	if target_file != "":
+		GameManager.next_spawn_point = target_spawn_point 
 		SceneFader.fade_and_change(target_file)

@@ -1,14 +1,17 @@
 [gd_scene format=4 uid="uid://bvnai42m6o8ye"]
 
 [ext_resource type="TileSet" uid="uid://dsc6g86ebcutd" path="res://src/tile_set.tres" id="1_3g52j"]
+[ext_resource type="Script" uid="uid://cetbrpp7cfu40" path="res://src/scenes/s_dorm.gd" id="1_lnpjb"]
 [ext_resource type="PackedScene" uid="uid://dt3dnl417m6kf" path="res://src/entities/player.tscn" id="2_75ido"]
-[ext_resource type="Script" uid="uid://d3wi1yrp07bou" path="res://src/scenes/door.gd" id="4_r7ljp"]
+[ext_resource type="Script" uid="uid://c77p4by41s7du" path="res://src/scenes/path_transition.gd" id="3_vm5mg"]
+[ext_resource type="Script" uid="uid://dykucw0fv4o02" path="res://spawn.gd" id="4_lnpjb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5k0ok"]
-size = Vector2(80, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2vd"]
+size = Vector2(86, 20)
 
 [node name="dorm 1" type="Node2D" unique_id=235375626]
 position = Vector2(115, 111)
+script = ExtResource("1_lnpjb")
 
 [node name="floor" type="TileMapLayer" parent="." unique_id=461003628]
 position = Vector2(57, -56)
@@ -38,16 +41,20 @@ tile_map_data = PackedByteArray("AAD1/+z/BAAVABMAADARAAQABAAUABMAAGDy/+3/BAAUABM
 tile_set = ExtResource("1_3g52j")
 
 [node name="Player" parent="." unique_id=427444456 instance=ExtResource("2_75ido")]
-position = Vector2(16, -42)
+position = Vector2(48, -110)
 
-[node name="Door" type="Area2D" parent="." unique_id=62010669 node_paths=PackedStringArray("destination")]
-position = Vector2(66, -57)
-script = ExtResource("4_r7ljp")
-destination = NodePath("../SpawnPoint")
+[node name="HallwayTransition" type="Area2D" parent="." unique_id=280042374]
+position = Vector2(-1, 5)
+script = ExtResource("3_vm5mg")
+normal_destination = "uid://b1jugjd76488n"
+scary_destination = "uid://b1jugjd76488n"
+target_spawn_point = "FromSDormtoSHall"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1688822863]
-position = Vector2(-48, 69)
-shape = SubResource("RectangleShape2D_5k0ok")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HallwayTransition" unique_id=814266334]
+position = Vector2(20, 9)
+shape = SubResource("RectangleShape2D_ne2vd")
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1538266063]
-position = Vector2(-3, 0)
+[node name="FromSHalltoSDorm" type="Marker2D" parent="." unique_id=1850838263]
+position = Vector2(20, -39)
+script = ExtResource("4_lnpjb")
+facing = "up"
